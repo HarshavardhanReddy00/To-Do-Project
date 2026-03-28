@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+
 function ToDoItem({ todo, toggleComplete, deleteTodo, editTodo }) {
   const [isEditing, setIsEditing] = useState(false)
   const [newText, setNewText] = useState(todo.text)
@@ -10,7 +11,7 @@ function ToDoItem({ todo, toggleComplete, deleteTodo, editTodo }) {
   }
 
   return (
-    <li className={todo.completed ? 'completed' : ''}>
+    <li className={`todo-item ${todo.completed ? 'completed' : ''}`}>
       {isEditing ? (
         <>
           <input
@@ -22,9 +23,13 @@ function ToDoItem({ todo, toggleComplete, deleteTodo, editTodo }) {
         </>
       ) : (
         <>
-          <span onClick={() => toggleComplete(todo.id)}>
+          <span
+            onClick={() => toggleComplete(todo.id)}
+            className="todo-text"
+          >
             {todo.text}
           </span>
+          {todo.completed && <span className="status">✔ Completed</span>}
           <button onClick={() => setIsEditing(true)}>Edit</button>
           <button onClick={() => deleteTodo(todo.id)}>Delete</button>
         </>
