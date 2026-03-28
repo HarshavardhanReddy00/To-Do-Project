@@ -35,6 +35,29 @@ button {
   background: skyblue;
 }
 
+.todo-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.todo-text {
+  cursor: pointer;
+  flex: 1;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.status {
+  margin-left: 10px;
+  color: green;
+  font-weight: bold;
+}
+
+
 .completed {
   text-decoration: line-through;
   color: gray;
